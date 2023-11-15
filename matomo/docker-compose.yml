@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  matomo:
+    image: matomo:4.15.1
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - matomo-data:/var/www/html
+    environment:
+      MATOMO_DATABASE_HOST: db
+      MATOMO_DATABASE_ADAPTER: mysqli
+      MATOMO_DATABASE_TABLES_PREFIX: matomo_
+      MATOMO_DATABASE_USERNAME: matomo
+      MATOMO_DATABASE_PASSWORD: matomo_password
+      MATOMO_DATABASE_DBNAME: matomo
+
+  db:
+    image: mysql:5.7
+    command: --max-allowed-packet=64MB
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: matomo
+      MYSQL_USER: matomo
+      MYSQL_PASSWORD: matomo_password
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  matomo-data:
+  db-data:
