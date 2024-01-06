@@ -1,4 +1,10 @@
 
-# .vscode
+.vscode
 .env
 
+*/**/logs
+
+*.sql
+matomo/plugins
+
+matomo/static/config.ini.php
