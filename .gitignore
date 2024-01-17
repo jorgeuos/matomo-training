@@ -8,3 +8,5 @@
 matomo/plugins
 
 matomo/static/config.ini.php
+backups/*
+
