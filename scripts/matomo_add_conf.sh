@@ -37,13 +37,14 @@ fi
 # trusted_hosts[] = "web"
 
 echo "Configuring Matomo"
-docker compose exec matomo ./console config:set --section="database" --key="host" --value=$MATOMO_DATABASE_HOST
-docker compose exec matomo ./console config:set --section="database" --key="username" --value=$MATOMO_DATABASE_USERNAME
-docker compose exec matomo ./console config:set --section="database" --key="password" --value=$MATOMO_DATABASE_PASSWORD
-docker compose exec matomo ./console config:set --section="database" --key="dbname" --value=$MATOMO_DATABASE_DBNAME
-docker compose exec matomo ./console config:set --section="database" --key="tables_prefix" --value=$MATOMO_TABLES_PREFIX
-docker compose exec matomo ./console config:set --section="General" --key="salt" --value=$MATOMO_CONFIG_SALT
-docker compose exec matomo ./console config:set --section="General" --key="trusted_hosts[]" --value="matomo.gr8.capow.se"
-docker compose exec matomo ./console config:set --section="General" --key="trusted_hosts[]" --value="greatit.se"
+envsubst < static/config.ini.php.template > static/config.ini.php
+# docker compose exec matomo ./console config:set --section="database" --key="host" --value=$MATOMO_DATABASE_HOST
+# docker compose exec matomo ./console config:set --section="database" --key="username" --value=$MATOMO_DATABASE_USERNAME
+# docker compose exec matomo ./console config:set --section="database" --key="password" --value=$MATOMO_DATABASE_PASSWORD
+# docker compose exec matomo ./console config:set --section="database" --key="dbname" --value=$MATOMO_DATABASE_DBNAME
+# docker compose exec matomo ./console config:set --section="database" --key="tables_prefix" --value=$MATOMO_TABLES_PREFIX
+# docker compose exec matomo ./console config:set --section="General" --key="salt" --value=$MATOMO_CONFIG_SALT
+# docker compose exec matomo ./console config:set --section="General" --key="trusted_hosts[]" --value="matomo.gr8.capow.se"
+# docker compose exec matomo ./console config:set --section="General" --key="trusted_hosts[]" --value="greatit.se"
 
 

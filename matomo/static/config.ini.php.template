@@ -15,6 +15,7 @@ salt = $MATOMO_CONFIG_SALT
 trusted_hosts[] = "matomo.gr8.capow.se"
 trusted_hosts[] = "greatit.se"
 trusted_hosts[] = "web"
+trusted_hosts[] = "matomo.local:8444"
 
 [PluginsInstalled]
 PluginsInstalled[] = "Diagnostics"

@@ -11,7 +11,8 @@ services:
     ports:
       - "8082:80"
     volumes:
-      - matomo-data:/var/www/html
+      - ./premium-plugins:/var/www/html/plugins
+      - ./static/config.ini.php:/var/www/html/config/config.ini.php
     environment:
       MATOMO_DATABASE_HOST: ${MATOMO_DATABASE_HOST}
       MATOMO_DATABASE_ADAPTER: mysqli
@@ -39,7 +40,6 @@ services:
       - gr8-shared-network
 
 volumes:
-  matomo-data:
   db-data:
 
 networks:
