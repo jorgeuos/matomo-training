@@ -2,7 +2,11 @@ version: '3.8'
 
 services:
   matomo:
-    image: matomo:4.15.1
+    # image: matomo:4.15.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: matomo:5.0.1
     restart: always
     ports:
       - "8082:80"
@@ -21,6 +25,7 @@ services:
 
   db:
     image: mysql:5.7
+    platform: linux/x86_64
     command: --max-allowed-packet=64MB
     restart: always
     environment:
