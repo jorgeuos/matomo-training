@@ -12,35 +12,27 @@ mkdir "${TMP_DIR}"
 
 
 
+# CustomOptOut
 PLUGIN_LIST=(
-    AbTesting
-    ActivityLog
-    AdvertisingConversionExport
-    Cohorts
-    CrashAnalytics
-    CustomReports
-    FormAnalytics
-    Funnels
-    HeatmapSessionRecording
-    LoginSaml
-    MultiChannelConversionAttribution
-    MediaAnalytics
-    RollUpReporting
-    SearchEngineKeywordsPerformance
-    SEOWebVitals
-    UsersFlow
-    WhiteLabel
+    GroupPermissions
+    InvalidateReports
+    AdminNotification
+    UserConsole
+    QueuedTracking
+    TrackerDomain
+    GoogleAnalyticsImporter
+    BotTracker
+    DevelopmentToogle
+    LogViewer
+    VisitorGenerator
+    ExtraTools
 )
-
-
-echo "License:"
-echo $MATOMO_LICENSE
 
 
 for i in "${PLUGIN_LIST[@]}";
 do
     echo "Curl get $i"
-    curl -f -sS --data "access_token=${MATOMO_LICENSE}" https://plugins.matomo.org/api/2.0/plugins/"$i"/download/latest?matomo="$MATOMO_VERSION" > "${TMP_DIR}"/"$i".zip
+    curl -f -sS https://plugins.matomo.org/api/2.0/plugins/"$i"/download/latest?matomo="$MATOMO_VERSION" > "${TMP_DIR}"/"$i".zip
     echo "Unzip $i"
     unzip -q "${TMP_DIR}/$i.zip" -d "${TMP_DIR}"
     rm -f "${TMP_DIR}/$i.zip"
@@ -55,7 +47,7 @@ done
 # sudo chown -R "$SERVER_USER":"$SERVER_USER" "${TMP_DIR}"
 
 echo "Syncing to ${WORKSPACE}/matomo/plugins"
-sudo rsync -avz "${TMP_DIR}"/ "${WORKSPACE}"/matomo/plugins
+rsync -avz "${TMP_DIR}"/ "${WORKSPACE}"/matomo/plugins
 
 # clean up
 rm -rf "${TMP_DIR}"

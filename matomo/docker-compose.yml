@@ -12,7 +12,9 @@ services:
       - "8082:80"
     volumes:
       - ./premium-plugins:/var/www/html/plugins
+      - ./plugins:/var/www/html/plugins
       - ./static/config.ini.php:/var/www/html/config/config.ini.php
+      - ./static/GeoLite2-City.mmdb:/var/www/html/misc/GeoLite2-City.mmdb
     environment:
       MATOMO_DATABASE_HOST: ${MATOMO_DATABASE_HOST}
       MATOMO_DATABASE_ADAPTER: mysqli

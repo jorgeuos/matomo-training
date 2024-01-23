@@ -1,4 +1,5 @@
 
+.DS_Store
 .vscode
 .env
 
@@ -8,6 +9,7 @@
 matomo/plugins
 
 matomo/static/config.ini.php
+matomo/static/GeoLite2-City.mmdb
 matomo/premium-plugins/*
+matomo/plugins/*
 backups/*
-
