@@ -48,3 +48,7 @@ envsubst < static/config.ini.php.template > static/config.ini.php
 # docker compose exec matomo ./console config:set --section="General" --key="trusted_hosts[]" --value="greatit.se"
 
 
+# docker compose exec matomo ./console config:set --section="General" --key="force_ssl" --value="1"
+# docker compose exec matomo ./console config:set --section="General" --key="enable_browser_archiving_triggering" --value=0
+# docker compose exec matomo ./console config:set --section="General" --key="browser_archiving_disabled_enforce" --value="1"
+
