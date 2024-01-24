@@ -14,7 +14,7 @@ cd $WORKSPACE/matomo
 
 docker compose exec -t matomo ./console development:enable
 
-docker compose exec -t matomo ./console visitorgenerator:generate-visits --idsite 2 --limit-fake-visits=10 --custom-matomo-url "https://matomo.gr8.capow.se/" --start-date=2023-11-27 --days=1
+# docker compose exec -t matomo ./console visitorgenerator:generate-visits --idsite 2 --limit-fake-visits=10 --custom-matomo-url "https://matomo.gr8.capow.se/" --start-date=2023-11-27 --days=1
 docker compose exec -t matomo ./console visitorgenerator:generate-visits --idsite 2 --limit-fake-visits=10 --custom-matomo-url "https://matomo.gr8.capow.se/" --start-date=2023-12-11 --days=7
 docker compose exec -t matomo ./console visitorgenerator:generate-visits --idsite 2 --limit-fake-visits=10 --custom-matomo-url "https://matomo.gr8.capow.se/" --start-date=2023-12-18 --days=7
 docker compose exec -t matomo ./console visitorgenerator:generate-visits --idsite 2 --limit-fake-visits=10 --custom-matomo-url "https://matomo.gr8.capow.se/" --start-date=2023-12-25 --days=7
